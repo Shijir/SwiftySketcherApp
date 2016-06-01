@@ -25,6 +25,7 @@ class NameViewController: UIViewController {
             let ref = FIRDatabase.database().reference().child("Sessions").child(self.sessionKey)
             ref.child("CreatorName").setValue(nameField.text)
             ref.child("Players").child(self.deviceID).child("PlayerName").setValue(nameField.text)
+            ref.child("Players").child(self.deviceID).child("PlayerCompleted").setValue(false)
             
             let waitingViewController = storyboard?.instantiateViewControllerWithIdentifier("waitingScreen") as! WaitingViewController
             
@@ -39,6 +40,7 @@ class NameViewController: UIViewController {
             
             //ref.child("CreatorName").setValue(nameField.text)
             ref.child("Players").child(self.deviceID).child("PlayerName").setValue(nameField.text)
+            ref.child("Players").child(self.deviceID).child("PlayerCompleted").setValue(false)
             
             let waitingViewController = storyboard?.instantiateViewControllerWithIdentifier("waitingScreen") as! WaitingViewController
             
