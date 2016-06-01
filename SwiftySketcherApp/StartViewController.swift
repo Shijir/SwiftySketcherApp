@@ -14,6 +14,7 @@ class StartViewController: UIViewController, UITableViewDataSource, UITableViewD
     var sessions = []
     let sessionsTableIdentifier = "sessionsTableIdentifier"
     var tableViewController = UITableViewController(style: .Plain)
+    let deviceUniqID:String = UIDevice.currentDevice().identifierForVendor!.UUIDString
 
     @IBOutlet var sessionLabel: UILabel!
     @IBOutlet var tableView: UITableView!
@@ -22,8 +23,9 @@ class StartViewController: UIViewController, UITableViewDataSource, UITableViewD
         //Create new session key in Firebase
         let newSession = FIRDatabase.database().reference().child("Sessions").childByAutoId()
         //Passing the unique Id of the device to creator field
-        let deviceUniqID:String = UIDevice.currentDevice().identifierForVendor!.UUIDString
         
+        
+        newSession.child("id").setValue(newSession.key)
         newSession.child("CreatorDevice").setValue(deviceUniqID)
         newSession.child("CreatorName").setValue("New session being created")
         newSession.child("Players").child(deviceUniqID).child("PlayerName").setValue("_")
@@ -118,14 +120,21 @@ class StartViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    //selecting tableRow
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        
+        
+        let nameViewController = storyboard?.instantiateViewControllerWithIdentifier("nameScreen") as! NameViewController
+        
+        nameViewController.creatingSession = false
+        
+        nameViewController.sessionKey = self.sessions[indexPath.row]["id"] as! String
+        nameViewController.deviceID = deviceUniqID
+        
+        self.presentViewController(nameViewController, animated: true, completion: nil)
+        
+        
     }
-    */
 
 }

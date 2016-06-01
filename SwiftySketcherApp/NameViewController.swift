@@ -34,6 +34,16 @@ class NameViewController: UIViewController {
         }
         //if false, join an existing session
         else{
+            
+            let ref = FIRDatabase.database().reference().child("Sessions").child(self.sessionKey)
+            
+            //ref.child("CreatorName").setValue(nameField.text)
+            ref.child("Players").child(self.deviceID).child("PlayerName").setValue(nameField.text)
+            
+            let waitingViewController = storyboard?.instantiateViewControllerWithIdentifier("waitingScreen") as! WaitingViewController
+            
+            self.presentViewController(waitingViewController, animated: true, completion: nil)
+
         
         }
         
