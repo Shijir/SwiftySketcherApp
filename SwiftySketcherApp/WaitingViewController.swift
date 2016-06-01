@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class WaitingViewController: UIViewController {
+class WaitingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     
     var sessionKey:String!
     var players = []
@@ -79,6 +79,25 @@ class WaitingViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.players.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier(playersTableIdentifier)
+        if (cell == nil) {
+            cell = UITableViewCell(
+                style: UITableViewCellStyle.Default,
+                reuseIdentifier: playersTableIdentifier)
+        }
+        
+        //cell?.textLabel?.text = "test"
+        cell?.textLabel?.text = self.players[indexPath.row]["PlayerName"] as! String
+        
+        
+        return cell!
     }
     
 
