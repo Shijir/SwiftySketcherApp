@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class NameViewController: UIViewController {
+class NameViewController: UIViewController, UITextFieldDelegate{
     
     var sessionKey:String!
     var deviceID:String!
@@ -60,9 +60,19 @@ class NameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        self.nameField.delegate = self
         
         // Do any additional setup after loading the view.
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        //textField code
+        
+        textField.resignFirstResponder()  //if desired
+        nameEntered(self)
+        
+        return true
     }
 
     override func didReceiveMemoryWarning() {

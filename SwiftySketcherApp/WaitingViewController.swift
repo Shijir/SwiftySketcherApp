@@ -34,6 +34,8 @@ class WaitingViewController: UIViewController, UITableViewDataSource, UITableVie
         
         super.viewDidAppear(animated)
         
+        print(self.recentPlayerKey)
+        
         let ref = FIRDatabase.database().reference()
         let refSessions = ref.child("Sessions")
         let refCurrentSession = refSessions.child(self.sessionKey)
@@ -50,17 +52,17 @@ class WaitingViewController: UIViewController, UITableViewDataSource, UITableVie
                 self.players = Array(fbSessions.values)
                 
                 
-                if self.players.count==1 {
-                    
-                    refSessionPlayers.child(self.recentPlayerKey).child("id").setValue(self.players.count)
-                    self.playersLabel.text = "You are the only player in this session."
-                    
-                }
-                
                 if self.players.count>1{
                     
                     refSessionPlayers.child(self.recentPlayerKey).child("id").setValue(self.players.count)
                     self.playersLabel.text = "There are \(self.players.count) players."
+                    
+                }
+                
+                else {
+                    
+                    refSessionPlayers.child(self.recentPlayerKey).child("id").setValue(self.players.count)
+                    self.playersLabel.text = "You are the only player in this session."
                     
                 }
                 
