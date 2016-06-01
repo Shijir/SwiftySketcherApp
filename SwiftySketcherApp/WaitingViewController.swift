@@ -7,18 +7,78 @@
 //
 
 import UIKit
+import Firebase
 
 class WaitingViewController: UIViewController {
+    
+    var sessionKey:String!
+    var players = []
+    let playersTableIdentifier = "playersTableIdentifier"
+    var tableViewController = UITableViewController(style: .Plain)
+
+    @IBOutlet var playersLabel: UILabel!
+    @IBOutlet var playersTableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        super.viewDidAppear(animated)
+        
+        let ref = FIRDatabase.database().reference()
+        let refSessions = ref.child("Sessions")
+        let refCurrentSession = refSessions.child(self.sessionKey)
+        let refSessionPlayers = refCurrentSession.child("Players")
+        refSessionPlayers.observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+            
+            
+            if snapshot.exists()  {
+
+                //print(snapshot.value)
+                let fbSessions = snapshot.value as! [String: AnyObject]
+                
+                
+                self.players = Array(fbSessions.values)
+                
+                
+                print(self.players)
+                
+                if self.players.count==1 {
+                    
+                    self.playersLabel.text = "You are the only player in this session."
+                    
+                }
+                
+                if self.players.count>1{
+                    
+                    self.playersLabel.text = "There are \(self.players.count) players."
+                    
+                }
+                
+                self.playersTableView.reloadData()
+                
+            }else{
+                
+                self.playersLabel.text = "No players. Create your session."
+                self.players = []
+                self.playersTableView.reloadData()
+                
+            }
+            
+            
+            
+        })
+        
+        // Do any additional setup after loading the view.
+        
     }
     
 

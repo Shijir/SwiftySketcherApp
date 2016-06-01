@@ -29,10 +29,10 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading data..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9A-ts-JjG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading sessions..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9A-ts-JjG">
                                 <rect key="frame" x="0.0" y="54" width="600" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ROH-qt-69T">
@@ -97,7 +97,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Enter your name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sHv-ZR-HJG">
                                 <rect key="frame" x="156" y="247" width="130" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JdZ-xf-Hcf">
@@ -150,42 +150,43 @@
                                     <barButtonItem title="Start" id="DHF-j3-KrK"/>
                                 </items>
                             </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLB-LI-Qz1">
-                                <rect key="frame" x="286" y="270" width="28" height="60"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="50"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The number of players here:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFb-4Z-QMO">
-                                <rect key="frame" x="192.5" y="235" width="215" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading players..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utI-Ch-Y6S">
+                                <rect key="frame" x="0.0" y="54" width="600" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="In order to start, there must be an even number of players including you." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YaR-EE-cYR">
-                                <rect key="frame" x="150.5" y="354" width="300" height="100"/>
-                                <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="mOa-ZR-iBc"/>
-                                    <constraint firstAttribute="width" constant="300" id="ydd-RX-BMX"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="a5r-oL-bTV">
+                                <rect key="frame" x="0.0" y="83" width="600" height="473"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="hLB-LI-Qz1" firstAttribute="top" secondItem="JFb-4Z-QMO" secondAttribute="bottom" constant="14" id="9cR-wK-kwW"/>
-                            <constraint firstItem="JFb-4Z-QMO" firstAttribute="centerX" secondItem="ZAo-6N-9HX" secondAttribute="centerX" id="Chc-3L-Knj"/>
+                            <constraint firstItem="utI-Ch-Y6S" firstAttribute="top" secondItem="cs2-49-sAF" secondAttribute="bottom" constant="34" id="ByA-Zo-F2v"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TX0-P6-pSH" secondAttribute="trailing" constant="-20" id="CwY-kp-Ll7"/>
-                            <constraint firstItem="YaR-EE-cYR" firstAttribute="centerX" secondItem="ZAo-6N-9HX" secondAttribute="centerX" id="Hbe-jM-Fzo"/>
                             <constraint firstItem="TX0-P6-pSH" firstAttribute="leading" secondItem="ZAo-6N-9HX" secondAttribute="leadingMargin" constant="-20" id="RyW-VG-omY"/>
-                            <constraint firstItem="YaR-EE-cYR" firstAttribute="top" secondItem="hLB-LI-Qz1" secondAttribute="bottom" constant="24" id="VX1-OL-Gh1"/>
+                            <constraint firstItem="TX0-P6-pSH" firstAttribute="top" secondItem="a5r-oL-bTV" secondAttribute="bottom" id="WaB-Ko-dyK"/>
+                            <constraint firstItem="a5r-oL-bTV" firstAttribute="top" secondItem="utI-Ch-Y6S" secondAttribute="bottom" constant="8" id="ZDl-wX-v4D"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="utI-Ch-Y6S" secondAttribute="trailing" constant="-20" id="ZTw-nX-qnx"/>
                             <constraint firstItem="tqq-83-nQj" firstAttribute="top" secondItem="TX0-P6-pSH" secondAttribute="bottom" id="cfF-wk-6bv"/>
-                            <constraint firstItem="hLB-LI-Qz1" firstAttribute="centerY" secondItem="ZAo-6N-9HX" secondAttribute="centerY" id="uk9-j2-4qI"/>
-                            <constraint firstItem="hLB-LI-Qz1" firstAttribute="centerX" secondItem="ZAo-6N-9HX" secondAttribute="centerX" id="wNC-gS-oMc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="a5r-oL-bTV" secondAttribute="trailing" constant="-20" id="cke-5a-4v4"/>
+                            <constraint firstItem="utI-Ch-Y6S" firstAttribute="leading" secondItem="ZAo-6N-9HX" secondAttribute="leadingMargin" constant="-20" id="eLY-4X-OJi"/>
+                            <constraint firstItem="a5r-oL-bTV" firstAttribute="trailing" secondItem="ZAo-6N-9HX" secondAttribute="trailingMargin" id="kpX-Kd-Ia2"/>
+                            <constraint firstItem="a5r-oL-bTV" firstAttribute="leading" secondItem="ZAo-6N-9HX" secondAttribute="leadingMargin" constant="-20" id="rFe-6V-duW"/>
+                            <constraint firstItem="a5r-oL-bTV" firstAttribute="leading" secondItem="ZAo-6N-9HX" secondAttribute="leadingMargin" id="us0-fW-mdw"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="kpX-Kd-Ia2"/>
+                                <exclude reference="us0-fW-mdw"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="playersLabel" destination="utI-Ch-Y6S" id="ovO-Of-nRp"/>
+                        <outlet property="playersTableView" destination="a5r-oL-bTV" id="mM5-B9-OnF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TFw-3Q-s9g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

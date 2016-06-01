@@ -29,6 +29,8 @@ class NameViewController: UIViewController {
             
             let waitingViewController = storyboard?.instantiateViewControllerWithIdentifier("waitingScreen") as! WaitingViewController
             
+            waitingViewController.sessionKey = self.sessionKey
+            
             self.presentViewController(waitingViewController, animated: true, completion: nil)
         
         
@@ -43,6 +45,8 @@ class NameViewController: UIViewController {
             ref.child("Players").child(self.deviceID).child("PlayerCompleted").setValue(false)
             
             let waitingViewController = storyboard?.instantiateViewControllerWithIdentifier("waitingScreen") as! WaitingViewController
+            
+            waitingViewController.sessionKey = self.sessionKey
             
             self.presentViewController(waitingViewController, animated: true, completion: nil)
 
