@@ -15,6 +15,7 @@ class WaitingViewController: UIViewController, UITableViewDataSource, UITableVie
     var players = []
     let playersTableIdentifier = "playersTableIdentifier"
     var tableViewController = UITableViewController(style: .Plain)
+    var recentPlayerKey:String!
 
     @IBOutlet var playersLabel: UILabel!
     @IBOutlet var playersTableView: UITableView!
@@ -49,16 +50,16 @@ class WaitingViewController: UIViewController, UITableViewDataSource, UITableVie
                 self.players = Array(fbSessions.values)
                 
                 
-                print(self.players)
-                
                 if self.players.count==1 {
                     
+                    refSessionPlayers.child(self.recentPlayerKey).child("id").setValue(self.players.count)
                     self.playersLabel.text = "You are the only player in this session."
                     
                 }
                 
                 if self.players.count>1{
                     
+                    refSessionPlayers.child(self.recentPlayerKey).child("id").setValue(self.players.count)
                     self.playersLabel.text = "There are \(self.players.count) players."
                     
                 }
