@@ -21,6 +21,7 @@
 		C9C896791CFFDAFA00E290CE /* ReportingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C896781CFFDAFA00E290CE /* ReportingViewController.swift */; };
 		C9C8967B1CFFF93E00E290CE /* SketchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C8967A1CFFF93E00E290CE /* SketchingViewController.swift */; };
 		C9C8967D1D00085600E290CE /* GuessingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C8967C1D00085600E290CE /* GuessingViewController.swift */; };
+		C9F1AB601D00CD5F00AE5333 /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F1AB5F1D00CD5F00AE5333 /* FinalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		C9C896781CFFDAFA00E290CE /* ReportingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportingViewController.swift; sourceTree = "<group>"; };
 		C9C8967A1CFFF93E00E290CE /* SketchingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SketchingViewController.swift; sourceTree = "<group>"; };
 		C9C8967C1D00085600E290CE /* GuessingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessingViewController.swift; sourceTree = "<group>"; };
+		C9F1AB5F1D00CD5F00AE5333 /* FinalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				C9C896781CFFDAFA00E290CE /* ReportingViewController.swift */,
 				C9C8967A1CFFF93E00E290CE /* SketchingViewController.swift */,
 				C9C8967C1D00085600E290CE /* GuessingViewController.swift */,
+				C9F1AB5F1D00CD5F00AE5333 /* FinalViewController.swift */,
 			);
 			path = SwiftySketcherApp;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				C98223D41CFD1C4200C267D9 /* ViewController.swift in Sources */,
 				C98223D21CFD1C4200C267D9 /* AppDelegate.swift in Sources */,
 				C98D5D8B1CFD35F100A83933 /* StartViewController.swift in Sources */,
+				C9F1AB601D00CD5F00AE5333 /* FinalViewController.swift in Sources */,
 				C9C8967D1D00085600E290CE /* GuessingViewController.swift in Sources */,
 				C98D5D8D1CFD3AC700A83933 /* NameViewController.swift in Sources */,
 				C9C896751CFFD4C300E290CE /* EnterMagicWordViewController.swift in Sources */,

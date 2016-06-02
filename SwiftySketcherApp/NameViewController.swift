@@ -45,7 +45,7 @@ class NameViewController: UIViewController, UITextFieldDelegate{
             
             
             ref.child("Players").child(self.deviceID).child("PlayerName").setValue(nameField.text)
-            ref.child("Players").child(self.deviceID).child("PlayerCompleted").setValue(false)
+
             
             ref.child("PlayersNumber").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
                 // Get user value

@@ -14,6 +14,7 @@ class ReportingViewController: UIViewController {
     var sessionKey:String!
     var PlayerId:Int!
     var PlayerName:String!
+    var PlayersNumber:Int!
     let deviceUniqID:String = UIDevice.currentDevice().identifierForVendor!.UUIDString
     
     @IBOutlet var yourTurnLabel: UILabel!
@@ -55,6 +56,17 @@ class ReportingViewController: UIViewController {
 
         let ref = FIRDatabase.database().reference().child("Sessions").child(self.sessionKey)
         
+        ref.observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
+            
+            
+            // Get number of users
+            self.PlayersNumber = snapshot.value!["PlayersNumber"] as! Int
+            
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
         ref.child("Players").child(self.deviceUniqID).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
             
             
@@ -70,6 +82,18 @@ class ReportingViewController: UIViewController {
         //observing changes in the entire session
         ref.child("ActivePlayerId").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
             let activePlayerId = snapshot.value as! Int
+            
+            //if activePlayerId exceeds player numbers finish
+            if self.PlayersNumber < activePlayerId{
+                
+                let finalViewController = self.storyboard?.instantiateViewControllerWithIdentifier("finalScreen") as! FinalViewController
+                
+                //sketchingViewController.sessionKey = self.sessionKey
+                //sketchingViewController.PlayerId = self.PlayerId
+                
+                self.presentViewController(finalViewController, animated: true, completion: nil)
+            
+            }
         
             if self.PlayerId == activePlayerId {
                 
