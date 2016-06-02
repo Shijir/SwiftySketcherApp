@@ -11,6 +11,8 @@ import Firebase
 
 class WaitingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     
+    
+    let deviceUniqID:String = UIDevice.currentDevice().identifierForVendor!.UUIDString
     var sessionKey:String!
     var players = []
     let playersTableIdentifier = "playersTableIdentifier"
@@ -45,7 +47,6 @@ class WaitingViewController: UIViewController, UITableViewDataSource, UITableVie
             
             if snapshot.exists()  {
 
-                //print(snapshot.value)
                 let fbSessions = snapshot.value as! [String: AnyObject]
                 
                 
@@ -54,14 +55,15 @@ class WaitingViewController: UIViewController, UITableViewDataSource, UITableVie
                 
                 if self.players.count>1{
                     
-                    refSessionPlayers.child(self.recentPlayerKey).child("id").setValue(self.players.count)
+                    
+                    //refSessionPlayers.child(self.deviceUniqID).child("id").setValue(playerID)
                     self.playersLabel.text = "There are \(self.players.count) players."
                     
                 }
                 
                 else {
                     
-                    refSessionPlayers.child(self.recentPlayerKey).child("id").setValue(self.players.count)
+                    //refSessionPlayers.child(self.deviceUniqID).child("id").setValue(playerID)
                     self.playersLabel.text = "You are the only player in this session."
                     
                 }

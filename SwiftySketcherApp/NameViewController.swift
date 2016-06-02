@@ -26,6 +26,8 @@ class NameViewController: UIViewController, UITextFieldDelegate{
             ref.child("CreatorName").setValue(nameField.text)
             ref.child("Players").child(self.deviceID).child("PlayerName").setValue(nameField.text)
             ref.child("Players").child(self.deviceID).child("PlayerCompleted").setValue(false)
+            ref.child("Players").child(self.deviceID).child("PlayerID").setValue(1)
+            ref.child("PlayersNumber").setValue(1)
             
             let waitingViewController = storyboard?.instantiateViewControllerWithIdentifier("waitingScreen") as! WaitingViewController
             
@@ -41,10 +43,24 @@ class NameViewController: UIViewController, UITextFieldDelegate{
             
             let ref = FIRDatabase.database().reference().child("Sessions").child(self.sessionKey)
             
-            //ref.child("CreatorName").setValue(nameField.text)
             
             ref.child("Players").child(self.deviceID).child("PlayerName").setValue(nameField.text)
             ref.child("Players").child(self.deviceID).child("PlayerCompleted").setValue(false)
+            
+            ref.child("PlayersNumber").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+                // Get user value
+                let playersNumbers = 1 + (snapshot.value as! Int)
+                print(playersNumbers)
+                
+                ref.child("Players").child(self.deviceID).child("PlayerID").setValue(playersNumbers)
+                ref.child("PlayersNumber").setValue(playersNumbers)
+                
+                
+            }) { (error) in
+                print(error.localizedDescription)
+            }
+            
+            print(ref.child("PlayersNumber"))
             
             let waitingViewController = storyboard?.instantiateViewControllerWithIdentifier("waitingScreen") as! WaitingViewController
             

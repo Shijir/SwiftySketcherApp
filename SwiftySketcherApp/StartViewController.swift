@@ -62,7 +62,6 @@ class StartViewController: UIViewController, UITableViewDataSource, UITableViewD
                 
                 
                 self.sessions = Array(fbSessions.values)
-                print(self.sessions)
 
                 if self.sessions.count==1 {
                     
