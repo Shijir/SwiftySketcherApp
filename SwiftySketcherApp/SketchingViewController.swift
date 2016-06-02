@@ -44,9 +44,21 @@ class SketchingViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let ref = FIRDatabase.database().reference().child("Sessions").child(self.sessionKey)
+        
+        ref.child("MagicWord").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+            
+            let magicWord = snapshot.value as! String
+            self.magicWordLabel.text = magicWord
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
 
         // Do any additional setup after loading the view.
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
