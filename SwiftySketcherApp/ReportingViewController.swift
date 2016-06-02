@@ -88,7 +88,7 @@ class ReportingViewController: UIViewController {
                 
                 let finalViewController = self.storyboard?.instantiateViewControllerWithIdentifier("finalScreen") as! FinalViewController
                 
-                //sketchingViewController.sessionKey = self.sessionKey
+                finalViewController.sessionKey = self.sessionKey
                 //sketchingViewController.PlayerId = self.PlayerId
                 
                 self.presentViewController(finalViewController, animated: true, completion: nil)

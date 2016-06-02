@@ -7,9 +7,15 @@
 //
 
 import UIKit
+import Firebase
 
 class FinalViewController: UIViewController {
+    
+    var sessionKey:String!
 
+    @IBOutlet var statusLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,6 +25,27 @@ class FinalViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let ref = FIRDatabase.database().reference().child("Sessions").child(self.sessionKey)
+        
+        
+        ref.child("blamePicture").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+            
+            if snapshot.exists() {
+            //if blamePicture field exists, it means the team failed    
+                self.statusLabel.text = "YOUR TEAM LOST!"
+                
+            }else{
+            //if blamePicture field doesn't exist, it means the team won
+                self.statusLabel.text = "YOUR TEAM WON!"
+            
+            }
+            //let base64String = snapshot.value as! String
+        })
     }
     
 
