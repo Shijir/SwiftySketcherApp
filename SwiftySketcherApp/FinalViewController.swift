@@ -75,10 +75,10 @@ class FinalViewController: UIViewController {
         
         ref.child("Players").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
             
-            self.sketcherLabel.text = snapshot.value![self.SketcherID]!!["PlayerName"] as? String
-            self.guesserLabel.text = snapshot.value![self.GuesserID]!!["PlayerName"] as? String
-            
-            
+            let sketcherName = snapshot.value![self.SketcherID]!!["PlayerName"] as? String
+            let guesserName = snapshot.value![self.GuesserID]!!["PlayerName"] as? String
+            self.sketcherLabel.text = "\(sketcherName?.capitalizedString) sketched a crappy \(self.passedMagicWord.uppercaseString)"
+            self.sketcherLabel.text = "That's \(sketcherName?.capitalizedString) didn't guess it right!"
         })
 
         
