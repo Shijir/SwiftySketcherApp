@@ -44,24 +44,7 @@ class FinalViewController: UIViewController {
             let magicWord = snapshot.value!["MagicWord"] as! String
             let blamePictureObject = snapshot.value!["blamePicture"]
             
-            let blamePicture = blamePictureObject as! String
-            let blameSketcherId = snapshot.value!["blameSketcherId"] as! String
-            let blameGuesserId = snapshot.value!["blameGuesserId"] as! String
-            
-            let playerObjects = snapshot.value!["Players"] as! [String: AnyObject]
-            let players = Array(playerObjects.values)
-            print(players)
-            
-            var blameSketcherName = blameSketcherId
-            var blameGuesserName = blameGuesserId
-            
-            for player in players {
-                
-                let playerInfo = player as! [String:String]
-                print(playerInfo)
-                
-            
-            }
+ 
             
             
             
@@ -76,6 +59,25 @@ class FinalViewController: UIViewController {
                 self.statusLabel.text = "YOUR TEAM LOST!"
                 self.magicWordLabel.text = "The Magic Word was:"
                 self.magicWordSelf.text = magicWord.uppercaseString
+                
+                let blamePicture = blamePictureObject as! String
+                let blameSketcherId = snapshot.value!["blameSketcherId"] as! String
+                let blameGuesserId = snapshot.value!["blameGuesserId"] as! String
+                
+                let playerObjects = snapshot.value!["Players"] as! [String: AnyObject]
+                let players = Array(playerObjects.values)
+                print(players)
+                
+                var blameSketcherName = blameSketcherId
+                var blameGuesserName = blameGuesserId
+                
+                for player in players {
+                    
+                    let playerInfo = player as! [String:String]
+                    print(playerInfo)
+                    
+                    
+                }
             
             }
             
