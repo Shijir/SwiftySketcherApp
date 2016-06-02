@@ -49,17 +49,15 @@ class ReportingViewController: UIViewController {
     
     
     override func viewDidAppear(animated: Bool) {
-        
         super.viewDidAppear(animated)
         
         
-        let ref = FIRDatabase.database().reference()
-        let refSessions = ref.child("Sessions")
-        let refCurrentSession = refSessions.child(self.sessionKey)
-        let refAllPlayers = refSessions.child("Players")
-        let myPlayerData = refAllPlayers.child(deviceUniqID)
+
+        let ref = FIRDatabase.database().reference().child("Sessions").child(self.sessionKey)
         
-        myPlayerData.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+        ref.child("Players").child(self.deviceUniqID).observeSingleEventOfType(FIRDataEventType.Value, withBlock: { (snapshot) in
+            
+            
             // Get user value
             self.PlayerId = snapshot.value!["PlayerID"] as! Int
             self.PlayerName = snapshot.value!["PlayerName"] as! String
@@ -70,7 +68,7 @@ class ReportingViewController: UIViewController {
         
         
         //observing changes in the entire session
-        refCurrentSession.child("ActivePlayerId").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+        ref.child("ActivePlayerId").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
             let activePlayerId = snapshot.value as! Int
         
             if self.PlayerId == activePlayerId {
