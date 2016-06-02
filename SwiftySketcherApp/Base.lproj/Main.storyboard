@@ -329,7 +329,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dEa-ns-r7L">
-                                <rect key="frame" x="0.0" y="69" width="600" height="463"/>
+                                <rect key="frame" x="0.0" y="107" width="600" height="425"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0S-aj-UP1">
                                 <rect key="frame" x="0.0" y="540" width="600" height="60"/>
@@ -352,8 +352,14 @@
                             <constraint firstItem="fhS-4n-SMw" firstAttribute="top" secondItem="v0S-aj-UP1" secondAttribute="bottom" id="Qgh-be-rsc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="v0S-aj-UP1" secondAttribute="trailing" constant="-20" id="bOH-Ly-em6"/>
                             <constraint firstItem="dEa-ns-r7L" firstAttribute="leading" secondItem="kkQ-tr-UuX" secondAttribute="leadingMargin" constant="-20" id="e2v-fd-adt"/>
+                            <constraint firstItem="dEa-ns-r7L" firstAttribute="top" secondItem="lcM-DI-PLf" secondAttribute="bottom" constant="46" id="gqI-mK-JJ6"/>
                             <constraint firstItem="lcM-DI-PLf" firstAttribute="top" secondItem="M1h-uG-xeM" secondAttribute="bottom" constant="20" id="pzV-Ae-SnZ"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="C3I-Q3-ezT"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="drawImageView" destination="dEa-ns-r7L" id="v4z-5N-fQX"/>
@@ -363,6 +369,78 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hWN-m7-M6X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4618" y="526"/>
+        </scene>
+        <!--Guessing View Controller-->
+        <scene sceneID="TAL-4r-bmr">
+            <objects>
+                <viewController storyboardIdentifier="guessingScreen" id="J3Q-Pm-o5R" customClass="GuessingViewController" customModule="SwiftySketcherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mRU-i6-FME"/>
+                        <viewControllerLayoutGuide type="bottom" id="mcd-oq-q7J"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="T4j-LM-iMb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guess The Magic Word:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yAI-s1-cl3">
+                                <rect key="frame" x="209" y="40" width="183" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="56H-0S-sDC">
+                                <rect key="frame" x="0.0" y="107" width="600" height="425"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcf-aE-Oi2">
+                                <rect key="frame" x="0.0" y="540" width="600" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="N2l-Rx-y40"/>
+                                </constraints>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="doneButton:" destination="J3Q-Pm-o5R" eventType="touchUpInside" id="5A5-up-YfD"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fir-IY-hkG">
+                                <rect key="frame" x="201" y="69" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="abJ-L6-XHC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="56H-0S-sDC" firstAttribute="top" secondItem="yAI-s1-cl3" secondAttribute="bottom" constant="8" id="1fn-x6-lhp"/>
+                            <constraint firstItem="56H-0S-sDC" firstAttribute="top" secondItem="fir-IY-hkG" secondAttribute="bottom" constant="8" id="8MP-ZO-0B2"/>
+                            <constraint firstItem="fir-IY-hkG" firstAttribute="centerX" secondItem="T4j-LM-iMb" secondAttribute="centerX" id="FgS-Z8-Php"/>
+                            <constraint firstItem="56H-0S-sDC" firstAttribute="leading" secondItem="T4j-LM-iMb" secondAttribute="leadingMargin" constant="-20" id="GSG-wa-gO6"/>
+                            <constraint firstItem="yAI-s1-cl3" firstAttribute="top" secondItem="mRU-i6-FME" secondAttribute="bottom" constant="20" id="SGP-dn-Wqp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hcf-aE-Oi2" secondAttribute="trailing" constant="-20" id="TEN-c5-acQ"/>
+                            <constraint firstItem="hcf-aE-Oi2" firstAttribute="top" secondItem="56H-0S-sDC" secondAttribute="bottom" constant="8" id="TJD-wu-ueH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="56H-0S-sDC" secondAttribute="trailing" constant="-20" id="dQG-2J-ArX"/>
+                            <constraint firstItem="fir-IY-hkG" firstAttribute="top" secondItem="yAI-s1-cl3" secondAttribute="bottom" constant="8" id="eY7-6W-6Qf"/>
+                            <constraint firstItem="mcd-oq-q7J" firstAttribute="top" secondItem="hcf-aE-Oi2" secondAttribute="bottom" id="fzx-bD-4sP"/>
+                            <constraint firstItem="yAI-s1-cl3" firstAttribute="centerX" secondItem="T4j-LM-iMb" secondAttribute="centerX" id="jEw-wj-aaO"/>
+                            <constraint firstItem="hcf-aE-Oi2" firstAttribute="leading" secondItem="T4j-LM-iMb" secondAttribute="leadingMargin" constant="-20" id="v5c-FB-dDW"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="1fn-x6-lhp"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="displayImage" destination="56H-0S-sDC" id="jKI-NF-5Se"/>
+                        <outlet property="drawImageView" destination="56H-0S-sDC" id="E0N-fF-3Bp"/>
+                        <outlet property="guessingInputField" destination="fir-IY-hkG" id="J0I-eN-Vrv"/>
+                        <outlet property="magicWordLabel" destination="yAI-s1-cl3" id="zJt-8M-CQq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8jM-a5-pE9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5249" y="526"/>
         </scene>
     </scenes>
 </document>

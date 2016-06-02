@@ -106,6 +106,13 @@ class ReportingViewController: UIViewController {
                     
                         //go to guessing word
                         
+                        let guessingViewController = self.storyboard?.instantiateViewControllerWithIdentifier("guessingScreen") as! GuessingViewController
+                        
+                        guessingViewController.sessionKey = self.sessionKey
+                        guessingViewController.PlayerId = self.PlayerId
+                        
+                        self.presentViewController(guessingViewController, animated: true, completion: nil)
+                        
                     }
                 
                 }
