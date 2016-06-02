@@ -18,6 +18,11 @@ class WaitingViewController: UIViewController, UITableViewDataSource, UITableVie
     let playersTableIdentifier = "playersTableIdentifier"
     var tableViewController = UITableViewController(style: .Plain)
     var recentPlayerKey:String!
+    
+    @IBOutlet var startButton: UIBarButtonItem!
+    @IBAction func startButtonAction(sender: AnyObject) {
+        
+    }
 
     @IBOutlet var playersLabel: UILabel!
     @IBOutlet var playersTableView: UITableView!
@@ -36,12 +41,28 @@ class WaitingViewController: UIViewController, UITableViewDataSource, UITableVie
         
         super.viewDidAppear(animated)
         
-        print(self.recentPlayerKey)
+        
         
         let ref = FIRDatabase.database().reference()
         let refSessions = ref.child("Sessions")
         let refCurrentSession = refSessions.child(self.sessionKey)
         let refSessionPlayers = refCurrentSession.child("Players")
+        
+        refCurrentSession.child("CreatorDevice").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            // Get user value
+            let creatorDevice = snapshot.value as! String
+            
+            if creatorDevice != self.deviceUniqID {
+                self.startButton.enabled = false
+            }
+            
+            // ...
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
+
+        
         refSessionPlayers.observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
             
             

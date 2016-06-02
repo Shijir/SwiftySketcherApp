@@ -147,7 +147,11 @@
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="qQi-eN-UuT"/>
-                                    <barButtonItem title="Start" id="DHF-j3-KrK"/>
+                                    <barButtonItem title="Start" id="DHF-j3-KrK">
+                                        <connections>
+                                            <action selector="startButtonAction:" destination="3Qq-wO-wKq" id="lc1-cg-Jd1"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading players..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utI-Ch-Y6S">
@@ -190,6 +194,7 @@
                     <connections>
                         <outlet property="playersLabel" destination="utI-Ch-Y6S" id="ovO-Of-nRp"/>
                         <outlet property="playersTableView" destination="a5r-oL-bTV" id="mM5-B9-OnF"/>
+                        <outlet property="startButton" destination="DHF-j3-KrK" id="ymU-6h-tpn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TFw-3Q-s9g" userLabel="First Responder" sceneMemberID="firstResponder"/>
