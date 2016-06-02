@@ -15,6 +15,8 @@ class GuessingViewController: UIViewController, UITextFieldDelegate {
     var sessionKey:String!
     var PlayerId: Int!
     var blamePicture:String!
+    var currentSketcher:String!
+    let deviceUniqID:String = UIDevice.currentDevice().identifierForVendor!.UUIDString
 
     @IBOutlet var guessingInputField: UITextField!
     
@@ -26,9 +28,12 @@ class GuessingViewController: UIViewController, UITextFieldDelegate {
         let refSessions = ref.child("Sessions")
         let refCurrentSession = refSessions.child(self.sessionKey)
         
+        
+        
         if self.guessingInputField.text != self.magicWord {
             
-            refCurrentSession.child("blameData").child("GuesserId").setValue(self.PlayerId)
+            refCurrentSession.child("blameData").child("SketcherId").setValue(self.currentSketcher)
+            refCurrentSession.child("blameData").child("GuesserId").setValue(deviceUniqID)
             refCurrentSession.child("blameData").child("Picture").setValue(self.blamePicture)
             
         }
@@ -55,6 +60,7 @@ class GuessingViewController: UIViewController, UITextFieldDelegate {
         ref.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
             // getting the magic word
             self.magicWord = snapshot.value!["MagicWord"] as! String
+            self.currentSketcher = snapshot.value!["CurrentSketcher"] as! String
             
             // ...
         }) { (error) in

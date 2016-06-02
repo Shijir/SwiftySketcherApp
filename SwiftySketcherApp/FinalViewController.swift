@@ -13,6 +13,10 @@ class FinalViewController: UIViewController {
     
     var sessionKey:String!
     var passedMagicWord:String!
+    
+    var SketcherID: String!
+    var GuesserID: String!
+    var PictureBase64: String!
 
     @IBOutlet var magicWordSelf: UILabel!
     @IBOutlet var magicWordLabel: UILabel!
@@ -25,6 +29,36 @@ class FinalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let ref = FIRDatabase.database().reference().child("Sessions").child(self.sessionKey)
+        
+        
+        ref.child("blameData").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+            
+            if snapshot.exists(){
+                
+                self.statusLabel.text = "YOUR TEAM LOST!"
+                self.magicWordLabel.text = "The wagic word was:"
+                self.magicWordSelf.text = self.passedMagicWord
+                
+                //self.magicWord = snapshot.value!["MagicWord"] as! String
+                
+                self.SketcherID = snapshot.value!["SketcherId"] as! String
+                self.GuesserID = snapshot.value!["GuesserId"] as! String
+                self.PictureBase64  = snapshot.value!["Picture"] as! String
+                
+            }else{
+                
+                self.statusLabel.text = "YOUR TEAM WON!"
+                self.magicWordLabel.text = "Indeed, the magic word was:"
+                self.magicWordSelf.text = self.passedMagicWord
+                self.sketcherLabel.hidden = true;
+                self.guesserLabel.hidden = true;
+                
+                
+            }
+            
+        })
 
         // Do any additional setup after loading the view.
     }
@@ -39,71 +73,16 @@ class FinalViewController: UIViewController {
         
         let ref = FIRDatabase.database().reference().child("Sessions").child(self.sessionKey)
         
-        
-        ref.child("blameData").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+        ref.child("Players").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
             
-            if snapshot.exists(){
-                
-                self.statusLabel.text = "YOUR TEAM LOST!"
-                self.magicWordLabel.text = "The Magic Word was:"
-                self.magicWordSelf.text = self.passedMagicWord
-            
-            }else{
-                
-                self.statusLabel.text = "YOUR TEAM WON!"
-                self.magicWordLabel.text = "Indeed, The Magic Word was:"
-                self.magicWordSelf.text = self.passedMagicWord
-                self.sketcherLabel.hidden = true;
-                self.guesserLabel.hidden = true;
+            self.sketcherLabel.text = snapshot.value![self.SketcherID]!!["PlayerName"] as? String
+            self.guesserLabel.text = snapshot.value![self.GuesserID]!!["PlayerName"] as? String
             
             
-            }
-            
-//            let magicWord = snapshot.value!["MagicWord"] as! String
-//            let blamePictureObject = snapshot.value!["blamePicture"]
-//            
-//            print("blamePictureObject")
-//            print(blamePictureObject)
-            
-//            if blamePictureObject == nil {
-//                self.statusLabel.text = "YOUR TEAM WON!"
-//                
-//                self.magicWordLabel.text = "Indeed, The Magic Word was:"
-//                self.magicWordSelf.text = magicWord.uppercaseString
-//            
-//            }
-//            else{
-//                self.statusLabel.text = "YOUR TEAM LOST!"
-//                self.magicWordLabel.text = "The Magic Word was:"
-//                self.magicWordSelf.text = magicWord.uppercaseString
-//                
-//                let blamePicture = blamePictureObject as! String
-//                
-//                print("blamePicture")
-//                print(blamePicture)
-//                
-//                let blameSketcherId = snapshot.value!["blameSketcherId"] as! String
-//                let blameGuesserId = snapshot.value!["blameGuesserId"] as! String
-//                
-//                let playerObjects = snapshot.value!["Players"] as! [String: AnyObject]
-//                let players = Array(playerObjects.values)
-//                print(players)
-//                
-//                var blameSketcherName = blameSketcherId
-//                var blameGuesserName = blameGuesserId
-//                
-//                for player in players {
-//                    
-//                    let playerInfo = player as! [String:String]
-//                    print(playerInfo)
-//                    
-//                    
-//                }
-//            
-//            }
-            
-
         })
+
+        
+
     }
     
 

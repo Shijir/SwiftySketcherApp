@@ -13,6 +13,7 @@ class SketchingViewController: UIViewController {
     var start: CGPoint?
     var sessionKey:String!
     var PlayerId: Int!
+    let deviceUniqID:String = UIDevice.currentDevice().identifierForVendor!.UUIDString
 
     @IBOutlet var magicWordLabel: UILabel!
     
@@ -24,6 +25,8 @@ class SketchingViewController: UIViewController {
         let ref = FIRDatabase.database().reference()
         let refSessions = ref.child("Sessions")
         let refCurrentSession = refSessions.child(self.sessionKey)
+        
+        refCurrentSession.child("CurrentSketcher").setValue(self.deviceUniqID);
         
         //setting the next user active
         let nextPlayerID = self.PlayerId + 1
