@@ -11,8 +11,10 @@ import Firebase
 
 class GuessingViewController: UIViewController, UITextFieldDelegate {
     
+    var magicWord:String!
     var sessionKey:String!
     var PlayerId: Int!
+    var blamePicture:String!
 
     @IBOutlet var guessingInputField: UITextField!
     
@@ -23,6 +25,14 @@ class GuessingViewController: UIViewController, UITextFieldDelegate {
         let ref = FIRDatabase.database().reference()
         let refSessions = ref.child("Sessions")
         let refCurrentSession = refSessions.child(self.sessionKey)
+        
+        if self.guessingInputField.text != self.magicWord {
+            
+            refCurrentSession.child("blameSketcherId").setValue(self.PlayerId-1)
+            refCurrentSession.child("blameGuesserId").setValue(self.PlayerId)
+            refCurrentSession.child("blamePicture").setValue(self.blamePicture)
+            
+        }
         
         
         //setting the next user active
@@ -38,6 +48,19 @@ class GuessingViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        let ref = FIRDatabase.database().reference().child("Sessions").child(self.sessionKey)
+        
+        ref.observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            // getting the magic word
+            self.magicWord = snapshot.value!["MagicWord"] as! String
+            
+            // ...
+        }) { (error) in
+            print(error.localizedDescription)
+        }
         
         self.guessingInputField.delegate = self
 
@@ -62,6 +85,8 @@ class GuessingViewController: UIViewController, UITextFieldDelegate {
         
         ref.child("CurrentImage").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
             let base64String = snapshot.value as! String
+            
+            self.blamePicture = base64String
             
             let dataDecoded:NSData = NSData(base64EncodedString: base64String, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)!
             

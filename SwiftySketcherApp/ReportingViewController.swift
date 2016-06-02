@@ -93,6 +93,10 @@ class ReportingViewController: UIViewController {
                 
                 self.presentViewController(finalViewController, animated: true, completion: nil)
             
+            }else{
+            
+                self.activePlayerReporting.text = "Players \(activePlayerId) is working now!"
+            
             }
         
             if self.PlayerId == activePlayerId {
@@ -143,7 +147,7 @@ class ReportingViewController: UIViewController {
             
             }
             
-            self.activePlayerReporting.text = "Players \(activePlayerId) is working now!"
+            
             
         })
     }
