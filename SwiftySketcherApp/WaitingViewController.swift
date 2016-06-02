@@ -29,6 +29,13 @@ class WaitingViewController: UIViewController, UITableViewDataSource, UITableVie
         
         refCurrentSession.child("GameOn").setValue(true);
         
+        let enterMagicWordViewController = storyboard?.instantiateViewControllerWithIdentifier("enterMagicWordScreen") as! EnterMagicWordViewController
+        
+        enterMagicWordViewController.sessionKey = self.sessionKey
+        
+        
+        self.presentViewController(enterMagicWordViewController, animated: true, completion: nil)
+        
     }
 
     @IBOutlet var playersLabel: UILabel!
@@ -40,7 +47,7 @@ class WaitingViewController: UIViewController, UITableViewDataSource, UITableVie
         let ref = FIRDatabase.database().reference()
         let refSessions = ref.child("Sessions")
         let refCurrentSession = refSessions.child(self.sessionKey)
-        let refSessionPlayers = refCurrentSession.child("Players")
+        //let refSessionPlayers = refCurrentSession.child("Players")
         
         refCurrentSession.observeEventType(.Value, withBlock: { (snapshot) in
             // Get user value

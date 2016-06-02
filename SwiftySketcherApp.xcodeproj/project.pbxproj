@@ -17,6 +17,7 @@
 		C98D5D8B1CFD35F100A83933 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98D5D8A1CFD35F100A83933 /* StartViewController.swift */; };
 		C98D5D8D1CFD3AC700A83933 /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98D5D8C1CFD3AC700A83933 /* NameViewController.swift */; };
 		C98D5D911CFD407B00A83933 /* WaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98D5D901CFD407B00A83933 /* WaitingViewController.swift */; };
+		C9C896751CFFD4C300E290CE /* EnterMagicWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C896741CFFD4C300E290CE /* EnterMagicWordViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		C98D5D8A1CFD35F100A83933 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		C98D5D8C1CFD3AC700A83933 /* NameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameViewController.swift; sourceTree = "<group>"; };
 		C98D5D901CFD407B00A83933 /* WaitingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingViewController.swift; sourceTree = "<group>"; };
+		C9C896741CFFD4C300E290CE /* EnterMagicWordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterMagicWordViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				C98D5D8A1CFD35F100A83933 /* StartViewController.swift */,
 				C98D5D8C1CFD3AC700A83933 /* NameViewController.swift */,
 				C98D5D901CFD407B00A83933 /* WaitingViewController.swift */,
+				C9C896741CFFD4C300E290CE /* EnterMagicWordViewController.swift */,
 			);
 			path = SwiftySketcherApp;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 				C98223D21CFD1C4200C267D9 /* AppDelegate.swift in Sources */,
 				C98D5D8B1CFD35F100A83933 /* StartViewController.swift in Sources */,
 				C98D5D8D1CFD3AC700A83933 /* NameViewController.swift in Sources */,
+				C9C896751CFFD4C300E290CE /* EnterMagicWordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
