@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import Firebase
 
 class ReportingViewController: UIViewController {
     
     var sessionKey:String!
 
+    @IBOutlet var activePlayerReporting: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +24,26 @@ class ReportingViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        super.viewDidAppear(animated)
+        
+        
+        let ref = FIRDatabase.database().reference()
+        let refSessions = ref.child("Sessions")
+        let refCurrentSession = refSessions.child(self.sessionKey)
+        
+        
+        refCurrentSession.child("ActivePlayerId").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+            let activePlayerId = snapshot.value as! Int
+            print(activePlayerId)
+            
+            self.activePlayerReporting.text = String(activePlayerId)
+            
+        })
     }
     
 

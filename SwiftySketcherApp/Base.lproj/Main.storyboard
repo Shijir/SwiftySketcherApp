@@ -283,6 +283,9 @@
                             <constraint firstItem="ZyM-n3-0hX" firstAttribute="centerY" secondItem="Vhu-v5-MGl" secondAttribute="centerY" id="nAF-4Z-h8O"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="activePlayerReporting" destination="ZyM-n3-0hX" id="nXd-LP-uF6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FY5-JE-sAc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
