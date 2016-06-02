@@ -39,7 +39,7 @@ class FinalViewController: UIViewController {
                 
                 self.statusLabel.text = "YOUR TEAM LOST!"
                 self.magicWordLabel.text = "The wagic word was:"
-                self.magicWordSelf.text = self.passedMagicWord
+                self.magicWordSelf.text = self.passedMagicWord.uppercaseString
                 
                 //self.magicWord = snapshot.value!["MagicWord"] as! String
                 
@@ -51,7 +51,7 @@ class FinalViewController: UIViewController {
                 
                 self.statusLabel.text = "YOUR TEAM WON!"
                 self.magicWordLabel.text = "Indeed, the magic word was:"
-                self.magicWordSelf.text = self.passedMagicWord
+                self.magicWordSelf.text = self.passedMagicWord.uppercaseString
                 self.sketcherLabel.hidden = true;
                 self.guesserLabel.hidden = true;
                 
@@ -75,10 +75,10 @@ class FinalViewController: UIViewController {
         
         ref.child("Players").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
             
-            let sketcherName = snapshot.value![self.SketcherID]!!["PlayerName"] as? String
-            let guesserName = snapshot.value![self.GuesserID]!!["PlayerName"] as? String
-            self.sketcherLabel.text = "\(sketcherName?.capitalizedString) sketched a crappy \(self.passedMagicWord.uppercaseString)"
-            self.guesserLabel.text = "So \(guesserName?.capitalizedString) didn't guess it right!"
+            let sketcherName = snapshot.value![self.SketcherID]!!["PlayerName"] as! String
+            let guesserName = snapshot.value![self.GuesserID]!!["PlayerName"] as! String
+            self.guesserLabel.text = "\(sketcherName?.capitalizedString) sketched a crappy \(self.passedMagicWord.uppercaseString)"
+            self.sketcherLabel.text = "So \(guesserName?.capitalizedString) didn't guess it right!"
         })
 
         
