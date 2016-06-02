@@ -78,7 +78,7 @@ class FinalViewController: UIViewController {
             let sketcherName = snapshot.value![self.SketcherID]!!["PlayerName"] as? String
             let guesserName = snapshot.value![self.GuesserID]!!["PlayerName"] as? String
             self.sketcherLabel.text = "\(sketcherName?.capitalizedString) sketched a crappy \(self.passedMagicWord.uppercaseString)"
-            self.sketcherLabel.text = "That's \(sketcherName?.capitalizedString) didn't guess it right!"
+            self.guesserLabel.text = "So \(guesserName?.capitalizedString) didn't guess it right!"
         })
 
         
