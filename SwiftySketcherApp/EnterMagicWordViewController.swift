@@ -12,6 +12,7 @@ import Firebase
 class EnterMagicWordViewController: UIViewController {
     
     var sessionKey:String!
+    
 
     @IBOutlet var magicWordInputField: UITextField!
     

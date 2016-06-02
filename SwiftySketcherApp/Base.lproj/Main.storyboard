@@ -276,15 +276,34 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pIN-oK-uKz">
+                                <rect key="frame" x="261" y="318" width="78" height="30"/>
+                                <state key="normal" title="Finish work"/>
+                                <connections>
+                                    <action selector="doWorkButton:" destination="txo-hL-qt4" eventType="touchUpInside" id="TZZ-8V-SAc"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="It's your turn!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpy-rY-H4X">
+                                <rect key="frame" x="238" y="242" width="101" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ZyM-n3-0hX" firstAttribute="centerX" secondItem="Vhu-v5-MGl" secondAttribute="centerX" id="EbC-NU-D9f"/>
+                            <constraint firstItem="pIN-oK-uKz" firstAttribute="top" secondItem="ZyM-n3-0hX" secondAttribute="bottom" constant="8" id="RJ9-NT-Bgh"/>
                             <constraint firstItem="ZyM-n3-0hX" firstAttribute="centerY" secondItem="Vhu-v5-MGl" secondAttribute="centerY" id="nAF-4Z-h8O"/>
+                            <constraint firstItem="ZyM-n3-0hX" firstAttribute="top" secondItem="bpy-rY-H4X" secondAttribute="bottom" constant="26" id="onw-fj-mzx"/>
+                            <constraint firstItem="pIN-oK-uKz" firstAttribute="centerX" secondItem="Vhu-v5-MGl" secondAttribute="centerX" id="qe7-gQ-uuR"/>
+                            <constraint firstItem="bpy-rY-H4X" firstAttribute="centerX" secondItem="Vhu-v5-MGl" secondAttribute="centerX" id="t5P-T1-Qiy"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="activePlayerReporting" destination="ZyM-n3-0hX" id="nXd-LP-uF6"/>
+                        <outlet property="doWorkButton" destination="pIN-oK-uKz" id="Wqa-8T-ByT"/>
+                        <outlet property="yourTurnLabel" destination="bpy-rY-H4X" id="6nd-j4-Wtg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FY5-JE-sAc" userLabel="First Responder" sceneMemberID="firstResponder"/>
