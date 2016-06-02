@@ -56,10 +56,10 @@ class GuessingViewController: UIViewController {
             
             print(base64String)
             
-//            let decodedData = NSData(base64EncodedString: base64String, options: NSDataBase64DecodingOptions(rawValue: 0))
-//            let decodedimage = UIImage(data: decodedData!)
-//            
-//            self.displayImage.image = decodedimage! as UIImage
+            let decodedData = NSData(base64EncodedString: base64String, options: NSDataBase64DecodingOptions(rawValue: 0))
+            let decodedimage = UIImage(data: decodedData!)
+            
+            self.displayImage.image = decodedimage! as UIImage
             
         })
         

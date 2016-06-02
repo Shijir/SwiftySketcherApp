@@ -398,7 +398,7 @@
                                 </constraints>
                                 <state key="normal" title="Done"/>
                                 <connections>
-                                    <action selector="doneButton:" destination="J3Q-Pm-o5R" eventType="touchUpInside" id="5A5-up-YfD"/>
+                                    <action selector="doneButton:" destination="J3Q-Pm-o5R" eventType="touchUpInside" id="eru-vT-1jq"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fir-IY-hkG">
@@ -432,10 +432,8 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="displayImage" destination="56H-0S-sDC" id="jKI-NF-5Se"/>
-                        <outlet property="drawImageView" destination="56H-0S-sDC" id="E0N-fF-3Bp"/>
+                        <outlet property="displayImage" destination="56H-0S-sDC" id="1nN-TF-M0g"/>
                         <outlet property="guessingInputField" destination="fir-IY-hkG" id="J0I-eN-Vrv"/>
-                        <outlet property="magicWordLabel" destination="yAI-s1-cl3" id="zJt-8M-CQq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8jM-a5-pE9" userLabel="First Responder" sceneMemberID="firstResponder"/>
