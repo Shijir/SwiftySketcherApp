@@ -13,7 +13,13 @@ class FinalViewController: UIViewController {
     
     var sessionKey:String!
 
+    @IBOutlet var magicWordSelf: UILabel!
+    @IBOutlet var magicWordLabel: UILabel!
     @IBOutlet var statusLabel: UILabel!
+    
+    @IBOutlet var sketcherLabel: UILabel!
+    
+    @IBOutlet var guesserLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -33,18 +39,47 @@ class FinalViewController: UIViewController {
         let ref = FIRDatabase.database().reference().child("Sessions").child(self.sessionKey)
         
         
-        ref.child("blamePicture").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+        ref.observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
             
-            if snapshot.exists() {
-            //if blamePicture field exists, it means the team failed    
-                self.statusLabel.text = "YOUR TEAM LOST!"
+            let magicWord = snapshot.value!["MagicWord"] as! String
+            let blamePictureObject = snapshot.value!["blamePicture"]
+            
+            let blamePicture = blamePictureObject as! String
+            let blameSketcherId = snapshot.value!["blameSketcherId"] as! String
+            let blameGuesserId = snapshot.value!["blameGuesserId"] as! String
+            
+            let playerObjects = snapshot.value!["Players"] as! [String: AnyObject]
+            let players = Array(playerObjects.values)
+            print(players)
+            
+            var blameSketcherName = blameSketcherId
+            var blameGuesserName = blameGuesserId
+            
+            for player in players {
                 
-            }else{
-            //if blamePicture field doesn't exist, it means the team won
-                self.statusLabel.text = "YOUR TEAM WON!"
+                let playerInfo = player as! [String:String]
+                print(playerInfo)
+                
             
             }
-            //let base64String = snapshot.value as! String
+            
+            
+            
+            if blamePictureObject == nil {
+                self.statusLabel.text = "YOUR TEAM WON!"
+                
+                self.magicWordLabel.text = "Indeed, The Magic Word was:"
+                self.magicWordSelf.text = magicWord.uppercaseString
+            
+            }
+            else{
+                self.statusLabel.text = "YOUR TEAM LOST!"
+                self.magicWordLabel.text = "The Magic Word was:"
+                self.magicWordSelf.text = magicWord.uppercaseString
+            
+            }
+            
+
         })
     }
     
