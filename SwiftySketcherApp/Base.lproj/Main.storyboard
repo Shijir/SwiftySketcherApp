@@ -129,7 +129,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PgZ-tB-egh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2058" y="526"/>
+            <point key="canvasLocation" x="1946" y="526"/>
         </scene>
         <!--Waiting View Controller-->
         <scene sceneID="hND-aD-WUF">
@@ -199,7 +199,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TFw-3Q-s9g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2802" y="526"/>
+            <point key="canvasLocation" x="2597" y="526"/>
         </scene>
         <!--Enter Magic Word View Controller-->
         <scene sceneID="yzr-VU-8dJ">
@@ -256,7 +256,37 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U8s-hF-Xqf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3470" y="526"/>
+            <point key="canvasLocation" x="3267" y="526"/>
+        </scene>
+        <!--Reporting View Controller-->
+        <scene sceneID="9e2-KV-tiF">
+            <objects>
+                <viewController storyboardIdentifier="reportingScreen" id="txo-hL-qt4" customClass="ReportingViewController" customModule="SwiftySketcherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VFl-27-k0X"/>
+                        <viewControllerLayoutGuide type="bottom" id="JGA-dg-2P5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Vhu-v5-MGl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player X is working!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZyM-n3-0hX">
+                                <rect key="frame" x="226" y="289" width="149" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZyM-n3-0hX" firstAttribute="centerX" secondItem="Vhu-v5-MGl" secondAttribute="centerX" id="EbC-NU-D9f"/>
+                            <constraint firstItem="ZyM-n3-0hX" firstAttribute="centerY" secondItem="Vhu-v5-MGl" secondAttribute="centerY" id="nAF-4Z-h8O"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FY5-JE-sAc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3943" y="526"/>
         </scene>
     </scenes>
 </document>

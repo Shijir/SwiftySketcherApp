@@ -28,6 +28,7 @@ class WaitingViewController: UIViewController, UITableViewDataSource, UITableVie
         let refCurrentSession = refSessions.child(self.sessionKey)
         
         refCurrentSession.child("GameOn").setValue(true);
+        refCurrentSession.child("ActivePlayerId").setValue(1);
         
         let enterMagicWordViewController = storyboard?.instantiateViewControllerWithIdentifier("enterMagicWordScreen") as! EnterMagicWordViewController
         
@@ -95,6 +96,20 @@ class WaitingViewController: UIViewController, UITableViewDataSource, UITableVie
         let refCurrentSession = refSessions.child(self.sessionKey)
         let refSessionPlayers = refCurrentSession.child("Players")
         
+        refCurrentSession.child("GameOn").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+            let GameOnStatus = snapshot.value as! Bool
+            print(GameOnStatus)
+            
+            if GameOnStatus {
+
+                let reportingViewController = self.storyboard?.instantiateViewControllerWithIdentifier("reportingScreen") as! ReportingViewController
+                
+                reportingViewController.sessionKey = self.sessionKey
+                
+                self.presentViewController(reportingViewController, animated: true, completion: nil)
+                
+            }
+        })
         
         refSessionPlayers.observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
             

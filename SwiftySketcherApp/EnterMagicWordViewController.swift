@@ -24,7 +24,16 @@ class EnterMagicWordViewController: UIViewController {
         let refSessions = ref.child("Sessions")
         let refCurrentSession = refSessions.child(self.sessionKey)
         
-        refCurrentSession.child("MagicWord").setValue(self.magicWordInputField.text);
+        refCurrentSession.child("ActivePlayerId").setValue(2)
+        
+        refCurrentSession.child("MagicWord").setValue(self.magicWordInputField.text)
+        
+        let reportingViewController = storyboard?.instantiateViewControllerWithIdentifier("reportingScreen") as! ReportingViewController
+        
+        reportingViewController.sessionKey = self.sessionKey
+        
+        
+        self.presentViewController(reportingViewController, animated: true, completion: nil)
         
     }
     override func viewDidLoad() {
