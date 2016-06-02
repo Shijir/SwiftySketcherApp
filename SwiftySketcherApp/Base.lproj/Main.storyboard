@@ -458,30 +458,55 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="The Magic Word is ..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Q2-x6-vU0">
-                                <rect key="frame" x="220" y="88" width="161" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Magic Word is ..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Q2-x6-vU0">
+                                <rect key="frame" x="220" y="90" width="161" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJX-CZ-uOb">
-                                <rect key="frame" x="293" y="138" width="14" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJX-CZ-uOb">
+                                <rect key="frame" x="293" y="140" width="14" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sketcher" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2Y-0N-iam">
-                                <rect key="frame" x="266" y="220" width="69" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sketcher" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2Y-0N-iam">
+                                <rect key="frame" x="266" y="222" width="69" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Guesser" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jV-pp-DIw">
-                                <rect key="frame" x="266" y="178" width="64" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guesser" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jV-pp-DIw">
+                                <rect key="frame" x="268" y="180" width="64" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLD-ms-O4x">
+                                <rect key="frame" x="160" y="287" width="280" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="F9K-CM-BwI"/>
+                                    <constraint firstAttribute="width" constant="280" id="bfy-ci-4SX"/>
+                                </constraints>
+                                <state key="normal" title="View The Crappy Picture">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3Y-Yp-JBN">
+                                <rect key="frame" x="160" y="501" width="280" height="50"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="33r-2A-grB"/>
+                                    <constraint firstAttribute="width" constant="280" id="YIO-Se-vql"/>
+                                </constraints>
+                                <state key="normal" title="Play Again">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="PlayAgainButton:" destination="FEH-ZG-TVF" eventType="touchUpInside" id="R22-sp-N9g"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -490,13 +515,17 @@
                             <constraint firstItem="0jV-pp-DIw" firstAttribute="centerX" secondItem="5wZ-QV-ayc" secondAttribute="centerX" id="96R-Wu-1sZ"/>
                             <constraint firstItem="z8q-Gd-CZH" firstAttribute="centerX" secondItem="5wZ-QV-ayc" secondAttribute="centerX" id="EHY-aa-GQL"/>
                             <constraint firstItem="z8q-Gd-CZH" firstAttribute="top" secondItem="p7j-TL-chD" secondAttribute="bottom" constant="24" id="FhD-qM-4qf"/>
+                            <constraint firstItem="CLD-ms-O4x" firstAttribute="centerX" secondItem="5wZ-QV-ayc" secondAttribute="centerX" id="G0f-vD-ePP"/>
                             <constraint firstItem="8Q2-x6-vU0" firstAttribute="top" secondItem="p7j-TL-chD" secondAttribute="bottom" constant="70" id="I0Q-ld-vwW"/>
                             <constraint firstItem="0jV-pp-DIw" firstAttribute="top" secondItem="B2Y-0N-iam" secondAttribute="bottom" constant="20" id="IQL-ji-tW7"/>
                             <constraint firstItem="B2Y-0N-iam" firstAttribute="top" secondItem="0jV-pp-DIw" secondAttribute="bottom" constant="21" id="Qsq-mz-9U6"/>
+                            <constraint firstItem="CLD-ms-O4x" firstAttribute="top" secondItem="B2Y-0N-iam" secondAttribute="bottom" constant="44" id="WQ2-PM-1yU"/>
                             <constraint firstItem="z8q-Gd-CZH" firstAttribute="centerX" secondItem="5wZ-QV-ayc" secondAttribute="centerX" id="bpd-Yw-sMh"/>
+                            <constraint firstItem="X3Y-Yp-JBN" firstAttribute="centerX" secondItem="5wZ-QV-ayc" secondAttribute="centerX" id="cZV-bM-gbI"/>
                             <constraint firstItem="LJX-CZ-uOb" firstAttribute="centerX" secondItem="5wZ-QV-ayc" secondAttribute="centerX" id="fm5-Z8-yCK"/>
                             <constraint firstItem="B2Y-0N-iam" firstAttribute="top" secondItem="LJX-CZ-uOb" secondAttribute="bottom" constant="29" id="lG1-Se-GZC"/>
                             <constraint firstItem="z8q-Gd-CZH" firstAttribute="centerY" secondItem="5wZ-QV-ayc" secondAttribute="centerY" id="p5u-AH-2bt"/>
+                            <constraint firstItem="3jr-Aj-Heh" firstAttribute="top" secondItem="X3Y-Yp-JBN" secondAttribute="bottom" constant="49" id="pBd-rq-ZGL"/>
                             <constraint firstItem="0jV-pp-DIw" firstAttribute="top" secondItem="LJX-CZ-uOb" secondAttribute="bottom" constant="19" id="qTm-Wu-w4z"/>
                             <constraint firstItem="B2Y-0N-iam" firstAttribute="centerX" secondItem="5wZ-QV-ayc" secondAttribute="centerX" id="sNn-ox-9tp"/>
                         </constraints>
@@ -510,6 +539,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="crappyPicButton" destination="CLD-ms-O4x" id="Raf-R9-vtR"/>
                         <outlet property="guesserLabel" destination="0jV-pp-DIw" id="St1-Wc-kei"/>
                         <outlet property="magicWordLabel" destination="8Q2-x6-vU0" id="eth-3l-H4K"/>
                         <outlet property="magicWordSelf" destination="LJX-CZ-uOb" id="67u-SO-i7u"/>

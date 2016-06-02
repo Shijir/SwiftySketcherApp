@@ -18,6 +18,7 @@ class FinalViewController: UIViewController {
     var GuesserID: String!
     var PictureBase64: String!
 
+    @IBOutlet var crappyPicButton: UIButton!
     @IBOutlet var magicWordSelf: UILabel!
     @IBOutlet var magicWordLabel: UILabel!
     @IBOutlet var statusLabel: UILabel!
@@ -26,6 +27,14 @@ class FinalViewController: UIViewController {
     
     @IBOutlet var guesserLabel: UILabel!
     
+    @IBAction func PlayAgainButton(sender: AnyObject) {
+        
+        //switching back to starting page
+        let startViewController = self.storyboard?.instantiateViewControllerWithIdentifier("startScreen") as! StartViewController
+        
+        self.presentViewController(startViewController, animated: true, completion: nil)
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +63,7 @@ class FinalViewController: UIViewController {
                 self.magicWordSelf.text = self.passedMagicWord.uppercaseString
                 self.sketcherLabel.hidden = true;
                 self.guesserLabel.hidden = true;
+                self.crappyPicButton.hidden = true;
                 
                 
             }
