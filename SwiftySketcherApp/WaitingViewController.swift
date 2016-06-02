@@ -26,25 +26,8 @@ class WaitingViewController: UIViewController, UITableViewDataSource, UITableVie
         let ref = FIRDatabase.database().reference()
         let refSessions = ref.child("Sessions")
         let refCurrentSession = refSessions.child(self.sessionKey)
-        var playersInSession = 0
         
-//        refCurrentSession.child("PlayersNumber").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-//
-//            playersInSession = snapshot.value as! Int
-//            
-//            if playersInSession {
-//            
-//                refCurrentSession.child("GameOn").setValue(true);
-//                
-//            }
-//            
-//
-//        
-//        }) { (error) in
-//            print(error.localizedDescription)
-//        }
-        
-        
+        refCurrentSession.child("GameOn").setValue(true);
         
     }
 
