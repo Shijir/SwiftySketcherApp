@@ -54,10 +54,12 @@ class GuessingViewController: UIViewController {
         ref.child("CurrentImage").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
             let base64String = snapshot.value as! String
             
-            let decodedData = NSData(base64EncodedString: base64String, options: NSDataBase64DecodingOptions(rawValue: 0))
-            let decodedimage = UIImage(data: decodedData!)
+            print(base64String)
             
-            self.displayImage.image = decodedimage! as UIImage
+//            let decodedData = NSData(base64EncodedString: base64String, options: NSDataBase64DecodingOptions(rawValue: 0))
+//            let decodedimage = UIImage(data: decodedData!)
+//            
+//            self.displayImage.image = decodedimage! as UIImage
             
         })
         
