@@ -20,7 +20,31 @@ class WaitingViewController: UIViewController, UITableViewDataSource, UITableVie
     var recentPlayerKey:String!
     
     @IBOutlet var startButton: UIBarButtonItem!
+    
     @IBAction func startButtonAction(sender: AnyObject) {
+        
+        let ref = FIRDatabase.database().reference()
+        let refSessions = ref.child("Sessions")
+        let refCurrentSession = refSessions.child(self.sessionKey)
+        var playersInSession = 0
+        
+//        refCurrentSession.child("PlayersNumber").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+//
+//            playersInSession = snapshot.value as! Int
+//            
+//            if playersInSession {
+//            
+//                refCurrentSession.child("GameOn").setValue(true);
+//                
+//            }
+//            
+//
+//        
+//        }) { (error) in
+//            print(error.localizedDescription)
+//        }
+        
+        
         
     }
 
@@ -29,6 +53,30 @@ class WaitingViewController: UIViewController, UITableViewDataSource, UITableVie
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let ref = FIRDatabase.database().reference()
+        let refSessions = ref.child("Sessions")
+        let refCurrentSession = refSessions.child(self.sessionKey)
+        let refSessionPlayers = refCurrentSession.child("Players")
+        
+        refCurrentSession.observeEventType(.Value, withBlock: { (snapshot) in
+            // Get user value
+            let creatorDevice = snapshot.value!["CreatorDevice"] as! String
+            let playersInSession = snapshot.value!["PlayersNumber"] as! Int
+            
+            print(creatorDevice)
+            print(playersInSession)
+            if creatorDevice != self.deviceUniqID {
+                self.startButton.enabled = false
+            }
+            if playersInSession % 2 != 0 {
+                self.startButton.enabled = false
+            }
+            
+            // ...
+        }) { (error) in
+            print(error.localizedDescription)
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -42,26 +90,11 @@ class WaitingViewController: UIViewController, UITableViewDataSource, UITableVie
         super.viewDidAppear(animated)
         
         
-        
         let ref = FIRDatabase.database().reference()
         let refSessions = ref.child("Sessions")
         let refCurrentSession = refSessions.child(self.sessionKey)
         let refSessionPlayers = refCurrentSession.child("Players")
         
-        refCurrentSession.child("CreatorDevice").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-            // Get user value
-            let creatorDevice = snapshot.value as! String
-            
-            if creatorDevice != self.deviceUniqID {
-                self.startButton.enabled = false
-            }
-            
-            // ...
-        }) { (error) in
-            print(error.localizedDescription)
-        }
-        
-
         
         refSessionPlayers.observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
             
