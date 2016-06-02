@@ -74,8 +74,37 @@ class ReportingViewController: UIViewController {
             if self.PlayerId == activePlayerId {
                 
                 self.doWorkButton.enabled = true;
-                self.yourTurnLabel.hidden = false;
                 
+            }
+            
+            if self.PlayerId == activePlayerId+1{
+                
+                self.yourTurnLabel.hidden = false;
+            }
+            
+            if self.PlayerId == activePlayerId{
+            
+                if self.PlayerId>1 {
+                
+                    if self.PlayerId % 2 == 0 {
+                    
+                        //go to sketching word
+                        
+                        let sketchingViewController = self.storyboard?.instantiateViewControllerWithIdentifier("sketchingScreen") as! SketchingViewController
+                        
+                        sketchingViewController.sessionKey = self.sessionKey
+                        sketchingViewController.PlayerId = self.PlayerId
+                        
+                        self.presentViewController(sketchingViewController, animated: true, completion: nil)
+                        
+                    }else{
+                    
+                        //go to guessing word
+                        
+                    }
+                
+                }
+            
             }
             
             self.activePlayerReporting.text = "Players \(activePlayerId) is working now!"

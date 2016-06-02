@@ -283,8 +283,8 @@
                                     <action selector="doWorkButton:" destination="txo-hL-qt4" eventType="touchUpInside" id="TZZ-8V-SAc"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="It's your turn!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpy-rY-H4X">
-                                <rect key="frame" x="238" y="242" width="101" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Your turn is coming soon! Be Prepared!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpy-rY-H4X">
+                                <rect key="frame" x="41" y="242" width="298" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -309,6 +309,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FY5-JE-sAc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3943" y="526"/>
+        </scene>
+        <!--Sketching View Controller-->
+        <scene sceneID="Qa9-yF-Twu">
+            <objects>
+                <viewController storyboardIdentifier="sketchingScreen" id="rtm-Ll-0Gs" customClass="SketchingViewController" customModule="SwiftySketcherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="M1h-uG-xeM"/>
+                        <viewControllerLayoutGuide type="bottom" id="fhS-4n-SMw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kkQ-tr-UuX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Magic Word Is..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lcM-DI-PLf">
+                                <rect key="frame" x="0.0" y="40" width="600" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dEa-ns-r7L">
+                                <rect key="frame" x="0.0" y="69" width="600" height="463"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0S-aj-UP1">
+                                <rect key="frame" x="0.0" y="540" width="600" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="stR-ts-ebd"/>
+                                </constraints>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="doneButton:" destination="rtm-Ll-0Gs" eventType="touchUpInside" id="JGx-yb-tJa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="v0S-aj-UP1" firstAttribute="leading" secondItem="kkQ-tr-UuX" secondAttribute="leadingMargin" constant="-20" id="8BW-VS-IbU"/>
+                            <constraint firstItem="lcM-DI-PLf" firstAttribute="centerX" secondItem="kkQ-tr-UuX" secondAttribute="centerX" id="8oT-5T-VF7"/>
+                            <constraint firstItem="dEa-ns-r7L" firstAttribute="top" secondItem="lcM-DI-PLf" secondAttribute="bottom" constant="8" id="C3I-Q3-ezT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dEa-ns-r7L" secondAttribute="trailing" constant="-20" id="COI-Sj-UnZ"/>
+                            <constraint firstItem="v0S-aj-UP1" firstAttribute="top" secondItem="dEa-ns-r7L" secondAttribute="bottom" constant="8" id="Pqg-Qx-HRO"/>
+                            <constraint firstItem="fhS-4n-SMw" firstAttribute="top" secondItem="v0S-aj-UP1" secondAttribute="bottom" id="Qgh-be-rsc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="v0S-aj-UP1" secondAttribute="trailing" constant="-20" id="bOH-Ly-em6"/>
+                            <constraint firstItem="dEa-ns-r7L" firstAttribute="leading" secondItem="kkQ-tr-UuX" secondAttribute="leadingMargin" constant="-20" id="e2v-fd-adt"/>
+                            <constraint firstItem="lcM-DI-PLf" firstAttribute="top" secondItem="M1h-uG-xeM" secondAttribute="bottom" constant="20" id="pzV-Ae-SnZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="drawImageView" destination="dEa-ns-r7L" id="v4z-5N-fQX"/>
+                        <outlet property="magicWordLabel" destination="lcM-DI-PLf" id="soU-sP-gI6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hWN-m7-M6X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4618" y="526"/>
         </scene>
     </scenes>
 </document>

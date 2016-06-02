@@ -19,6 +19,7 @@
 		C98D5D911CFD407B00A83933 /* WaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98D5D901CFD407B00A83933 /* WaitingViewController.swift */; };
 		C9C896751CFFD4C300E290CE /* EnterMagicWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C896741CFFD4C300E290CE /* EnterMagicWordViewController.swift */; };
 		C9C896791CFFDAFA00E290CE /* ReportingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C896781CFFDAFA00E290CE /* ReportingViewController.swift */; };
+		C9C8967B1CFFF93E00E290CE /* SketchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C8967A1CFFF93E00E290CE /* SketchingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		C98D5D901CFD407B00A83933 /* WaitingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingViewController.swift; sourceTree = "<group>"; };
 		C9C896741CFFD4C300E290CE /* EnterMagicWordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterMagicWordViewController.swift; sourceTree = "<group>"; };
 		C9C896781CFFDAFA00E290CE /* ReportingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportingViewController.swift; sourceTree = "<group>"; };
+		C9C8967A1CFFF93E00E290CE /* SketchingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SketchingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				C98D5D901CFD407B00A83933 /* WaitingViewController.swift */,
 				C9C896741CFFD4C300E290CE /* EnterMagicWordViewController.swift */,
 				C9C896781CFFDAFA00E290CE /* ReportingViewController.swift */,
+				C9C8967A1CFFF93E00E290CE /* SketchingViewController.swift */,
 			);
 			path = SwiftySketcherApp;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				C98D5D8B1CFD35F100A83933 /* StartViewController.swift in Sources */,
 				C98D5D8D1CFD3AC700A83933 /* NameViewController.swift in Sources */,
 				C9C896751CFFD4C300E290CE /* EnterMagicWordViewController.swift in Sources */,
+				C9C8967B1CFFF93E00E290CE /* SketchingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
