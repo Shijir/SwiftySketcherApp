@@ -80,6 +80,11 @@ class ReportingViewController: UIViewController {
             if self.PlayerId == activePlayerId+1{
                 
                 self.yourTurnLabel.hidden = false;
+                
+            }else{
+                
+                self.yourTurnLabel.hidden = true;
+            
             }
             
             if self.PlayerId == activePlayerId{

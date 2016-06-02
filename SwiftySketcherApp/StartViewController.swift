@@ -28,6 +28,7 @@ class StartViewController: UIViewController, UITableViewDataSource, UITableViewD
         newSession.child("id").setValue(newSession.key)
         newSession.child("CreatorDevice").setValue(deviceUniqID)
         newSession.child("MagicWord").setValue("none")
+        newSession.child("CurrentImage").setValue("none")
         newSession.child("CreatorName").setValue("New session being created")
         newSession.child("Players").child(deviceUniqID).child("PlayerName").setValue("_")
         newSession.child("GameOn").setValue(false)

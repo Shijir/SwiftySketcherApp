@@ -25,10 +25,17 @@ class SketchingViewController: UIViewController {
         let refSessions = ref.child("Sessions")
         let refCurrentSession = refSessions.child(self.sessionKey)
         
+        //setting the next user active
         let nextPlayerID = self.PlayerId + 1
         refCurrentSession.child("ActivePlayerId").setValue(nextPlayerID)
         
-        
+        //Converting image to base64
+        let image : UIImage = drawImageView.image!
+        let imageData:NSData = UIImagePNGRepresentation(image)!
+        let strBase64:String = imageData.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
+
+        refCurrentSession.child("CurrentImage").setValue(strBase64)
+
         
         let reportingViewController = self.storyboard?.instantiateViewControllerWithIdentifier("reportingScreen") as! ReportingViewController
         reportingViewController.sessionKey = self.sessionKey
