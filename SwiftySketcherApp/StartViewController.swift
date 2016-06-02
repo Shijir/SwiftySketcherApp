@@ -113,11 +113,13 @@ class StartViewController: UIViewController, UITableViewDataSource, UITableViewD
             cell?.textLabel?.text = self.sessions[indexPath.row]["CreatorName"] as? String
         }
         
-        let gameOn = self.sessions[indexPath.row]["GameOn"] as! Bool
+        let gameOn = self.sessions[indexPath.row]["GameOn"] as? Bool
         
-        if gameOn {
+        if (gameOn != nil) && (gameOn==true){
         
-            cell?.textLabel?.enabled = false
+            
+                cell?.textLabel?.enabled = false
+                cell?.selectionStyle = UITableViewCellSelectionStyle.None
             
         }
         
