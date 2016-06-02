@@ -106,8 +106,12 @@ class StartViewController: UIViewController, UITableViewDataSource, UITableViewD
                 reuseIdentifier: sessionsTableIdentifier)
         }
         
+        let sessionCreatorName = self.sessions[indexPath.row]["CreatorName"] as? String
         
-        cell?.textLabel?.text = self.sessions[indexPath.row]["CreatorName"] as! String
+        if sessionCreatorName != nil {
+            cell?.textLabel?.text = self.sessions[indexPath.row]["CreatorName"] as? String
+        }
+        
         
         
         return cell!
