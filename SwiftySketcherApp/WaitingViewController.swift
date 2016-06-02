@@ -66,12 +66,22 @@ class WaitingViewController: UIViewController, UITableViewDataSource, UITableVie
             
             print(creatorDevice)
             print(playersInSession)
+            
+            if playersInSession < 3 {
+                self.startButton.enabled = false
+            }else{
+                self.startButton.enabled = true
+                
+                if (playersInSession % 2) == 0 {
+                    self.startButton.enabled = false
+                }
+                
+            }
+            
             if creatorDevice != self.deviceUniqID {
                 self.startButton.enabled = false
             }
-            if playersInSession % 2 != 0 {
-                self.startButton.enabled = false
-            }
+            
             
             // ...
         }) { (error) in
