@@ -12,6 +12,7 @@ import Firebase
 class FinalViewController: UIViewController {
     
     var sessionKey:String!
+    var passedMagicWord:String!
 
     @IBOutlet var magicWordSelf: UILabel!
     @IBOutlet var magicWordLabel: UILabel!
@@ -39,47 +40,67 @@ class FinalViewController: UIViewController {
         let ref = FIRDatabase.database().reference().child("Sessions").child(self.sessionKey)
         
         
-        ref.observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+        ref.child("blameData").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
             
-            let magicWord = snapshot.value!["MagicWord"] as! String
-            let blamePictureObject = snapshot.value!["blamePicture"]
-            
- 
-            
-            
-            
-            if blamePictureObject == nil {
-                self.statusLabel.text = "YOUR TEAM WON!"
+            if snapshot.exists(){
                 
-                self.magicWordLabel.text = "Indeed, The Magic Word was:"
-                self.magicWordSelf.text = magicWord.uppercaseString
-            
-            }
-            else{
                 self.statusLabel.text = "YOUR TEAM LOST!"
                 self.magicWordLabel.text = "The Magic Word was:"
-                self.magicWordSelf.text = magicWord.uppercaseString
+                self.magicWordSelf.text = self.passedMagicWord
+            
+            }else{
                 
-                let blamePicture = blamePictureObject as! String
-                let blameSketcherId = snapshot.value!["blameSketcherId"] as! String
-                let blameGuesserId = snapshot.value!["blameGuesserId"] as! String
-                
-                let playerObjects = snapshot.value!["Players"] as! [String: AnyObject]
-                let players = Array(playerObjects.values)
-                print(players)
-                
-                var blameSketcherName = blameSketcherId
-                var blameGuesserName = blameGuesserId
-                
-                for player in players {
-                    
-                    let playerInfo = player as! [String:String]
-                    print(playerInfo)
-                    
-                    
-                }
+                self.statusLabel.text = "YOUR TEAM WON!"
+                self.magicWordLabel.text = "Indeed, The Magic Word was:"
+                self.magicWordSelf.text = self.passedMagicWord
+                self.sketcherLabel.hidden = true;
+                self.guesserLabel.hidden = true;
+            
             
             }
+            
+//            let magicWord = snapshot.value!["MagicWord"] as! String
+//            let blamePictureObject = snapshot.value!["blamePicture"]
+//            
+//            print("blamePictureObject")
+//            print(blamePictureObject)
+            
+//            if blamePictureObject == nil {
+//                self.statusLabel.text = "YOUR TEAM WON!"
+//                
+//                self.magicWordLabel.text = "Indeed, The Magic Word was:"
+//                self.magicWordSelf.text = magicWord.uppercaseString
+//            
+//            }
+//            else{
+//                self.statusLabel.text = "YOUR TEAM LOST!"
+//                self.magicWordLabel.text = "The Magic Word was:"
+//                self.magicWordSelf.text = magicWord.uppercaseString
+//                
+//                let blamePicture = blamePictureObject as! String
+//                
+//                print("blamePicture")
+//                print(blamePicture)
+//                
+//                let blameSketcherId = snapshot.value!["blameSketcherId"] as! String
+//                let blameGuesserId = snapshot.value!["blameGuesserId"] as! String
+//                
+//                let playerObjects = snapshot.value!["Players"] as! [String: AnyObject]
+//                let players = Array(playerObjects.values)
+//                print(players)
+//                
+//                var blameSketcherName = blameSketcherId
+//                var blameGuesserName = blameGuesserId
+//                
+//                for player in players {
+//                    
+//                    let playerInfo = player as! [String:String]
+//                    print(playerInfo)
+//                    
+//                    
+//                }
+//            
+//            }
             
 
         })

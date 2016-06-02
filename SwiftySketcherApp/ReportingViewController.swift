@@ -14,6 +14,7 @@ class ReportingViewController: UIViewController {
     var sessionKey:String!
     var PlayerId:Int!
     var PlayerName:String!
+    var MagicWord:String!
     var PlayersNumber:Int!
     let deviceUniqID:String = UIDevice.currentDevice().identifierForVendor!.UUIDString
     
@@ -61,6 +62,7 @@ class ReportingViewController: UIViewController {
             
             // Get number of users
             self.PlayersNumber = snapshot.value!["PlayersNumber"] as! Int
+            self.MagicWord = snapshot.value!["MagicWord"] as! String
             
             
         }) { (error) in
@@ -89,6 +91,7 @@ class ReportingViewController: UIViewController {
                 let finalViewController = self.storyboard?.instantiateViewControllerWithIdentifier("finalScreen") as! FinalViewController
                 
                 finalViewController.sessionKey = self.sessionKey
+                finalViewController.passedMagicWord = self.MagicWord
                 //sketchingViewController.PlayerId = self.PlayerId
                 
                 self.presentViewController(finalViewController, animated: true, completion: nil)

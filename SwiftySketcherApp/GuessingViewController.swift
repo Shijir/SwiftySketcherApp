@@ -28,9 +28,8 @@ class GuessingViewController: UIViewController, UITextFieldDelegate {
         
         if self.guessingInputField.text != self.magicWord {
             
-            refCurrentSession.child("blameSketcherId").setValue(self.PlayerId-1)
-            refCurrentSession.child("blameGuesserId").setValue(self.PlayerId)
-            refCurrentSession.child("blamePicture").setValue(self.blamePicture)
+            refCurrentSession.child("blameData").child("GuesserId").setValue(self.PlayerId)
+            refCurrentSession.child("blameData").child("Picture").setValue(self.blamePicture)
             
         }
         
