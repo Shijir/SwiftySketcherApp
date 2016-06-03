@@ -75,7 +75,7 @@ class FinalViewController: UIViewController {
                 self.magicWordSelf.text = self.passedMagicWord.uppercaseString
                 self.sketcherLabel.hidden = true;
                 self.guesserLabel.hidden = true;
-                self.crappyPicButton.hidden = true;
+                
                 self.teamWIN = true;
                 
                 
