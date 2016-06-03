@@ -30,7 +30,11 @@ class GuessingViewController: UIViewController, UITextFieldDelegate {
         
         
         
-        if self.guessingInputField.text != self.magicWord {
+        if self.guessingInputField.text?.lowercaseString.stringByTrimmingCharactersInSet(
+            NSCharacterSet.whitespaceAndNewlineCharacterSet()
+            ) != self.magicWord.lowercaseString.stringByTrimmingCharactersInSet(
+            NSCharacterSet.whitespaceAndNewlineCharacterSet()
+            ) {
             
             refCurrentSession.child("blameData").child("SketcherId").setValue(self.currentSketcher)
             refCurrentSession.child("blameData").child("GuesserId").setValue(deviceUniqID)
