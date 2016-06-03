@@ -57,6 +57,16 @@ class FinalViewController: UIViewController {
                 self.GuesserID = snapshot.value!["GuesserId"] as! String
                 self.PictureBase64  = snapshot.value!["Picture"] as! String
                 
+                let ref = FIRDatabase.database().reference().child("Sessions").child(self.sessionKey)
+                
+                ref.child("Players").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
+                    
+                    let sketcherName = snapshot.value![self.SketcherID]!!["PlayerName"] as! String
+                    let guesserName = snapshot.value![self.GuesserID]!!["PlayerName"] as! String
+                    self.guesserLabel.text = "\(sketcherName.capitalizedString) sketched a crappy \(self.passedMagicWord.uppercaseString)"
+                    self.sketcherLabel.text = "So \(guesserName.capitalizedString) didn't guess it right!"
+                })
+                
                 
             }else{
                 
@@ -67,6 +77,8 @@ class FinalViewController: UIViewController {
                 self.guesserLabel.hidden = true;
                 self.crappyPicButton.hidden = true;
                 self.teamWIN = true;
+                
+                
                 
                 
             }
@@ -83,20 +95,6 @@ class FinalViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
-        if self.teamWIN {
-            let ref = FIRDatabase.database().reference().child("Sessions").child(self.sessionKey)
-            
-            ref.child("Players").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) in
-                
-                let sketcherName = snapshot.value![self.SketcherID]!!["PlayerName"] as! String
-                let guesserName = snapshot.value![self.GuesserID]!!["PlayerName"] as! String
-                self.guesserLabel.text = "\(sketcherName.capitalizedString) sketched a crappy \(self.passedMagicWord.uppercaseString)"
-                self.sketcherLabel.text = "So \(guesserName.capitalizedString) didn't guess it right!"
-            })
-        }
-
-
         
 
     }
